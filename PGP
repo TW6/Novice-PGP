@@ -1,0 +1,21 @@
+#/usr/local/bin/python
+
+#The basics. 
+#Version 0.5
+#Complete the first half of the program and finish the rest in version 1.
+
+print 'Hello, who are you?'
+name = raw_input()
+print 'Hey, %s, Michael wants you to email him ASAP. He will be online shortly.' %name
+print 'We shall begin writing a messaged to him.'
+print 'Tell him about yourself. Hint: This will be the plaintext. Press 1 to use a preselected message.'
+
+plaintext = raw_input()
+if plaintext == 1
+    plaintext = "Hey Michael. I am unemployed and my social security number is 251852521. Help me out."
+
+ciphertext2 = plaintext.encode('base64','strict')
+
+print 'Micahel is now online.'
+print 'Hey %s, before you send that email to me, I am going to give us a public key so we can encrypt our messages' %name
+prime = raw_input('What prime number do you want to use?')
