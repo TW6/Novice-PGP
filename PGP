@@ -1,21 +1,136 @@
-#/usr/local/bin/python
+#!C:\Python27;
 
-#The basics. 
-#Version 0.5
-#Complete the first half of the program and finish the rest in version 1.
+import sys
+import time
+import math
+import fractions
+import random
 
-print 'Hello, who are you?'
-name = raw_input()
-print 'Hey, %s, Michael wants you to email him ASAP. He will be online shortly.' %name
-print 'We shall begin writing a messaged to him.'
-print 'Tell him about yourself. Hint: This will be the plaintext. Press 1 to use a preselected message.'
+def main():
 
-plaintext = raw_input()
-if plaintext == 1
-    plaintext = "Hey Michael. I am unemployed and my social security number is 251852521. Help me out."
+    print 'Host: Welcome, who are you?'
+    name = raw_input()
+    print 'Host: Hello %s.' %name
+    print 'Host: Michael wants you to email him about the problems you are currently experiencing.' 
+    print 'Host: He will be online shortly.\n'
+   
+    time.sleep(5.5)
+    print '\tUser Micahel is now online.\n'
+    
+    time.sleep(2)
+    print '\tMichael is writing a message....\n'
+    
+    time.sleep(5)
+    print 'Michael: Hey %s, before you begin writing that email for me, I am going to give us a public key so we can encrypt your email.\n' %name
+    print 'Micahel: We will use 107 as our prime and 7 for our g.\n'
+    
+    prime = 107
+    g = 7
+    
+    time.sleep(5)
+    print 'Host: Enter your secret integer to calculate the Value to send to Micahel. \n'
+    print 'Host: (No one can see this but you.)\n'
+    yoursecret = raw_input()
+    yoursecret = int(yoursecret)
+    
+    yourside = pow(7,yoursecret,107)
+    
+    print 'Host: Thank you. I will foward your Value to Michael. \n'
+    
+    time.sleep(2)
+    print '\tMichael is writing a message....\n'
+    
+    time.sleep(2)
+    print 'Got it. Here is my Value. '
+    msecret = random.randint(1,50)
+    mside = pow(7,msecret,107)
+    
+    print mside
+    
+    time.sleep(4)
+    print 'Host: I will now generate the secret key for you. \n'
+    secretkey = pow(mside,yoursecret,107)
+    
+    print 'Host: Since this a test run, I will display you secret key to bob for confirmation.'
+    print secretkey
+    
+    secretkeyconfirm = pow(yourside,msecret,107)
+    
+    time.sleep(4)
+    print '\tMichael is writing a message....\n'
+    
+    time.sleep(2)
+    print 'Michael: This what I have as well.\n'
+    print secretkeyconfirm
+     
+    time.sleep(3)
+    print '\tMichael is writing a message....\n'
+    
+    print 'Michael: Thank you for your patience %s, this was just a test run.\n' %name
+    
+    print '\tMichael is writing a message....\n'
+    time.sleep(4)
+    print 'Micahel: Just message me some other time when you are ready. Cya\n'
+    
+    time.sleep(2)
+    print '\tMichael is now offline.\n'
+    
+    time.sleep(4)
+    print 'Host: These are the values of the secret key the two of you generated before mod prime.\n'
+    print 'Host: Yours: '
+    secretkey = math.pow(mside,yoursecret)
+    print secretkey
+    
+    print '\nHost: Michael: '
+    secretkeyconfirm = math.pow(yourside,msecret)
+    print secretkeyconfirm
+    
+    print '\nHost: This ends the test run. Thank you for your time %s.' %name
+    
+    #################################################################################
+    #The following section is commented out because I wanted to do something a little special but it did not work out.
+    
+    # time.sleep(1.5)
+    # print '\tMichael is writing a message....\n'
+    # time.sleep(2.5)
+    # print 'Michael: What prime number do you want to use?'
 
-ciphertext2 = plaintext.encode('base64','strict')
-
-print 'Micahel is now online.'
-print 'Hey %s, before you send that email to me, I am going to give us a public key so we can encrypt our messages' %name
-prime = raw_input('What prime number do you want to use?')
+    # tmp=0
+    
+    #Tests and sees if the input is a prime number
+    # for x in xrange(0,3):
+        # prime = raw_input()
+        # prime = int(prime)
+        # if prime%2==0:
+            # print "Host: I'm sorry, " + str(prime) + " is a even number. Please try again." 
+        # else:
+            # for y in range(3, int(prime**0.5)+2, 2):
+                # if prime%y==0:
+                    # print "Host: I'm sorry, " + str(prime) + " is not a prime number. Please try again." 
+                    # break
+                # else:
+                    # tmp = prime
+                    # print "Host: Thank you. One moment please...\n"
+                    # break
+            # if tmp == prime:
+                # break
+                
+    # #time.sleep(2)
+    # print '\t Michael is writing a message....\n'
+    
+    # time.sleep(1.5)
+    # print 'Micahel: Great. Now I will come up with a base for us.'
+    
+    # Spent days trying to figure how to test for Euler's totient function. Gave up.
+    # ptest = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29]
+    # tmp4 = fractions.gcd(tmp2,prime)
+    
+    #for x in collection:
+        #tmp2 = math.pow(tmp3,
+        #else:
+            #tmp3 = x
+            #print tmp3
+            #break
+    #########################################################################################################                       
+main()
+    
